@@ -47,3 +47,5 @@ React.createElement("div",
 {id:"child"},
 [React.createElement("h1",{},"Hello there!"),React.createElement("h2",{},"Hello there!")])
 )
+
+//for make this eassy we use JSX 
