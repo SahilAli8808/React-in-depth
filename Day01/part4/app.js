@@ -14,6 +14,7 @@
         <div id="parent">
                 <div id="child">
                     <h1> Hello there</h1>
+                
                 </div>
         </div>
 
@@ -26,3 +27,23 @@
     {id:"child"},
     React.createElement("h1",{},"Hello there!"))
     )
+
+// how to add siblings 
+     /*
+        <div id="parent">
+                <div id="child">
+                    <h1> Hello there</h1>
+                    <h2> Hello 2</h2>
+                </div>
+        </div>
+
+    */
+
+//for that we can use array in third param
+const element2 = React.createElement(
+    "div",
+{id:"parent"},
+React.createElement("div",
+{id:"child"},
+[React.createElement("h1",{},"Hello there!"),React.createElement("h2",{},"Hello there!")])
+)
