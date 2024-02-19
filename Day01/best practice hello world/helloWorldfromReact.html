@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
     <title>Hello world from React</title>
 </head>
 <body>
@@ -10,14 +11,7 @@
     <!-- //react content delivery network code  -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>
-    //creating heading element  <h1> hello world from react </h1>
-    //using React.createElement("what element want to create", {what attribute want to add}, "what conent inside the element")
-     const heading  = React.createElement("h1",{id: "heading"},"Hello world from react")
-     //to render in root , we need to create virtual root 
-     const root = ReactDOM.createRoot(document.getElementById("root"))
-     root.render(heading)
-</script>
+<script src="./app.js"></script>
 
 </body>
 </html>
