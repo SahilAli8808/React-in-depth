@@ -17,4 +17,11 @@ This Repo is all about the deep dive React concepts and assignment with solution
 - parcel
 - browserlist
 
-## Episode 03 : React Components
+## Episode 03 : Laying the Foundation
+- JSX
+- React Components
+- Functional Components
+- babel
+- TitleComponent vs <TitleComponent/> vs <TitleComponent></TitleComponent>
+
+## Episode 04 : First Project - Food Ordering App
