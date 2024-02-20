@@ -16,8 +16,7 @@ import ReactDOM  from 'react-dom'
     /*
         <div id="parent">
                 <div id="child">
-                    <h1> Hello there</h1>
-                
+                    <h1> Hello there</h1> 
                 </div>
         </div>
 
