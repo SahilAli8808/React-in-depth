@@ -57,9 +57,13 @@ const Body = () => {
 
                 </div>
             </div>
-            <div className='card-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
+            <div className='card-container' >
     {
-        filterdata.length === 0 ? <h3 style={{ margin: '0' }}>Ooops! No restaurant Found</h3> : filterdata.map(restaurant => <RestCard key={restaurant.info.id} resData={restaurant} />)
+        filterdata.length === 0 ? 
+        (  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "70vh" , width:"1200px"}}>
+            <h3 >Ooops! No restaurant Found</h3>
+        </div>
+            ): filterdata.map(restaurant => <RestCard key={restaurant.info.id} resData={restaurant} />)
     }
 </div>
 
