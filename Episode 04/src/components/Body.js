@@ -30,25 +30,39 @@ const Body = () => {
                     setdata(filteredRestaurants)
                 }}> Filter top rated search </button>
                 <div className='search'>
-                    {/* <label htmlFor='search'>
+                    <label htmlFor='search'>
                         Search : 
-                    </label> */}
-                    <input type='text' name='search' value={searchdata} onChange={(e) => setSearchdata(e.target.value)} />
-                    <button style={{ marginLeft: "5px" }} onClick={() => {
+                    </label>
+                    <input
+                        type='text'
+                        name='search'
+                        value={searchdata}
+                        onChange={(e) => {
+                            const searchValue = e.target.value;
+                            setSearchdata(searchValue);
+                            console.log(searchValue)
+                            const filterdata = data.filter((restaurant) => {
+                                return restaurant.info.name.toLowerCase().includes(searchValue.toLowerCase());
+                            });
+                            setfilterData(filterdata);
+                        }}
+                    />
+
+                    {/* <button style={{ marginLeft: "5px" }} onClick={() => {
                         const filterdata = data.filter((restaurant) => {
                             return restaurant.info.name.toLowerCase().includes(searchdata.toLowerCase());
                         });
                         setfilterData(filterdata);
-                    }}>Search</button>
+                    }}>Search</button> */}
 
                 </div>
             </div>
-            <div className='card-container'>
-                {
-                    filterdata.map(resturant => <RestCard key={resturant.info.id} resData={resturant} />)
-                }
+            <div className='card-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
+    {
+        filterdata.length === 0 ? <h3 style={{ margin: '0' }}>Ooops! No restaurant Found</h3> : filterdata.map(restaurant => <RestCard key={restaurant.info.id} resData={restaurant} />)
+    }
+</div>
 
-            </div>
         </div>
     )
 }
