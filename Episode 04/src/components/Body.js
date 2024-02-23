@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import RestCard from "./RestCard";
+import { Link } from "react-router-dom";
 const Body = () => {
     const [data, setdata] = useState([]);
     const [searchdata, setSearchdata] = useState("")
@@ -23,11 +24,11 @@ const Body = () => {
         <div className='body'>
             <div className='bodyhead-container'>
                 <button className='filter' onClick={() => {
-                    const filteredRestaurants = data.filter((resturant) => {
+                    const filteredRestaurants = filterdata.filter((resturant) => {
                         return resturant.info.avgRating >= 4.5
 
                     })
-                    setdata(filteredRestaurants)
+                    setfilterData(filteredRestaurants)
                 }}> Filter top rated search </button>
                 <div className='search'>
                     <label htmlFor='search'>
@@ -42,7 +43,9 @@ const Body = () => {
                             setSearchdata(searchValue);
                             console.log(searchValue)
                             const filterdata = data.filter((restaurant) => {
-                                return restaurant.info.name.toLowerCase().includes(searchValue.toLowerCase());
+                                return restaurant.info.avgRating.toString().toLowerCase().includes(searchValue.toLowerCase()) 
+                                || restaurant.info.name.toLowerCase().includes(searchValue.toLowerCase()) 
+                                || restaurant.info.locality.toLowerCase().includes(searchValue.toLowerCase());
                             });
                             setfilterData(filterdata);
                         }}
@@ -63,7 +66,8 @@ const Body = () => {
         (  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "70vh" , width:"1200px"}}>
             <h3 >Ooops! No restaurant Found</h3>
         </div>
-            ): filterdata.map(restaurant => <RestCard key={restaurant.info.id} resData={restaurant} />)
+            ): filterdata.map(restaurant => 
+            <Link key={restaurant.info.id} to={"/restaurant/"+ restaurant.info.id}><RestCard resData={restaurant}/>  </Link> )
     }
 </div>
 
